@@ -110,7 +110,13 @@ const renderBlock = (block) => {
         </details>
       );
     case "child_page":
-      return <p>{value.title}</p>;
+      return (
+        <div>
+          <Link href={`/${block.child_page.title}`} as={`/${block.child_page.title}`}>
+            <a>{value.title}</a>
+          </Link>
+        </div>
+      );
     case "image":
       const src =
         value.type === "external" ? value.external.url : value.file.url;
